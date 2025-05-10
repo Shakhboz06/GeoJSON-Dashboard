@@ -22,7 +22,7 @@ A Streamlit-based web application for processing, validating, and visualizing Ge
 
 
  - backend/
- - ├── app.py                  # Main Streamlit app (with inline comments)
+ - ├── app.py                  # Main Streamlit app
  - ├── kafka_integration.py    # Kafka producer & event publisher
  - ├── requirements.txt        # Python dependencies
  - ├── Dockerfile              # Containerization recipe
