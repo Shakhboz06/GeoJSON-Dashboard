@@ -21,14 +21,14 @@ A Streamlit-based web application for processing, validating, and visualizing Ge
 ## 📂 Project Structure
 
 
- backend/
- ├── app.py                  # Main Streamlit app (with inline comments)
- ├── kafka_integration.py    # Kafka producer & event publisher
- ├── requirements.txt        # Python dependencies
- ├── Dockerfile              # Containerization recipe
- ├── docker-compose.yml      # Orchestrates app + Kafka + Zookeeper
- ├── README.md               # ← This file
- └── app.log                 # Generated at runtime by Loguru
+ - backend/
+ - ├── app.py                  # Main Streamlit app (with inline comments)
+ - ├── kafka_integration.py    # Kafka producer & event publisher
+ - ├── requirements.txt        # Python dependencies
+ - ├── Dockerfile              # Containerization recipe
+ - ├── docker-compose.yml      # Orchestrates app + Kafka + Zookeeper
+ - ├── README.md               # ← This file
+ - └── app.log                 # Generated at runtime by Loguru
 
 ---
 
