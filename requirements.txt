@@ -1,0 +1,22 @@
+streamlit
+# streamlit library i used this python library just allows us to build the web dashboard quickly and easily in Python. 
+#  Which is ideal especially rapid development of data apps and dashboards with minimal code to 
+# process and visualize GeoJSON data.
+geopandas 
+#GeoPandas extends Pandas to support spatial operations on geometric types, 
+# making it simple to load, manipulate, and analyze geospatial data.
+shapely
+# I used Shapely to check if geometries are valid and to apply fixes (like buffer(0)) to correct invalid geometries, 
+#  which is necesary for accurate spatial analysis.
+folium
+#  Folium builds on the popular Leaflet.js library and 
+# makes it easy to visualize geospatial data on interactive maps.
+streamlit-folium
+# To integrate Folium maps seamlessly within a Streamlit application.
+loguru
+# It makes it easy to log events, errors, and debugging information, 
+# which is essential for tracking the app’s performance and troubleshooting issues.
+kafka-python
+# Kafka-python enables the app to send events to a Kafka cluster. 
+# This event-driven approach allows for further processing and scalability, 
+# needed for automating workflows and handling data pipelines.

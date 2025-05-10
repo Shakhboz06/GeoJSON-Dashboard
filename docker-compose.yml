@@ -1,0 +1,49 @@
+version: '3'
+services:
+# This section defines all the containers that Docker Compose will manage.
+  app:
+    build: .
+    # build the Docker image for the app using the Dockerfile located in the current directory.
+    ports:
+      - "8501:8501"
+      # Exposes port 8501 of the container to port 8501 on the host, so you can access your Streamlit app.
+    depends_on:
+      - kafka
+      - zookeeper
+      # The app service depends on both Kafka and Zookeeper. 
+      # This ensures that Docker Compose starts Kafka and Zookeeper before starting the app.
+  zookeeper:
+    image: wurstmeister/zookeeper
+    ports:
+      - "2181:2181"
+  kafka:
+    image: wurstmeister/kafka
+    ports:
+      - "9092:9092"
+    environment:
+      # Configures Kafka to listen on all network interfaces at port 9092.
+      KAFKA_LISTENERS: PLAINTEXT://0.0.0.0:9092
+      # Informs Kafka clients about how to reach Kafka. 
+      # Here it uses the hostname kafka (localhost could be also) (which is the service name within the Docker network) on port 9092.
+      KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://kafka:9092
+      # Sets the advertised host name to kafka, so clients can use this hostname.
+      KAFKA_ADVERTISED_HOST_NAME: kafka
+      # Specifies the Zookeeper connection (zookeeper:2181) for Kafka to connect to Zookeeper.
+      KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
+
+
+# How it works:
+# Running (docker-compose up) will start all the defined services. 
+# The depends_on in the app service ensures that Kafka and Zookeeper are started first.
+# Service Communication:
+# Inside the Docker network:
+# The Streamlit app (app service) can communicate with Kafka and Zookeeper using their service names (kafka and zookeeper).
+# Kafka listens on port 9092 and uses the advertised listeners to ensure that other services can connect.
+
+
+# Instruction to run it on other devices/OS:
+# docker load -i geojson-dashboard.tar
+
+# and running the docker container:
+# docker-compose up
+
